@@ -3,78 +3,211 @@ HOST: http://polls.apiblueprint.org/
 
 # Attendance Tracker Mock Data
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Attendance Tracker Mock Data is an API with purpose of serving a mocked data for a simple Android front end.
 
-## Questions Collection [/questions]
+## Service Collections [/services]
 
-### List All Questions [GET]
+### List All Services [GET]
 
 + Response 200 (application/json)
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "data": [
+                        {
+                            "name": "leave tracker",
+                            "icon": "https://raw.githubusercontent.com/khrlimam/static-mock-data/master/deadline.svg"
+                        },
+                        {
+                            "name": "time tracker",
+                            "icon": "https://raw.githubusercontent.com/khrlimam/static-mock-data/master/alarm-clock.svg"
+                        },
+                        {
+                            "name": "attendance",
+                            "icon": "https://raw.githubusercontent.com/khrlimam/static-mock-data/master/calendar.svg"
+                        },
+                        {
+                            "name": "files",
+                            "icon": "https://raw.githubusercontent.com/khrlimam/static-mock-data/master/folder.svg"
+                        },
+                        {
+                            "name": "organization",
+                            "icon": "https://raw.githubusercontent.com/khrlimam/static-mock-data/master/collaboration.svg"
+                        },
+                        {
+                            "name": "announcements",
+                            "icon": "https://raw.githubusercontent.com/khrlimam/static-mock-data/master/bullhorn.svg"
+                        },
+                        {
+                            "name": "presentations",
+                            "icon": "https://raw.githubusercontent.com/khrlimam/static-mock-data/master/presentation-2.svg"
+                        },
+                        {
+                            "name": "flight",
+                            "icon": "https://raw.githubusercontent.com/khrlimam/static-mock-data/master/airplane.svg"
+                        }
+                    ]
         }
+        
+## User Approval Collections [/user/{username}/approval{?status}]
 
-+ Response 201 (application/json)
+### Show User Approval Status [GET]
++ Parameters
+    + username (string, required, `khairulimam`) - Username which approval to see by ?status
+    + status (string, optional, `pending`) - Specify which approval status to see [pending, approved, rejected]. The default is pending
 
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
++ Response 200 (application/json)
+        
+        {
+            "data": [
+                        {
+                            "date": "2019-10-02 05:10:10",
+                            "present": false,
+                            "reason": "sick"
+                        },
+                        {
+                            "date": "2019-10-03 05:10:10",
+                            "present": false,
+                            "reason": "not feeling well"
+                        },
+                        {
+                            "date": "2019-10-04 05:10:10",
+                            "present": false,
+                            "reason": "not feeling well"
+                        },
+                        {
+                            "date": "2019-10-05 05:10:10",
+                            "present": true,
+                            "reason": "good"
+                        },
+                        {
+                            "date": "2019-10-06 05:10:10",
+                            "present": false,
+                            "reason": "not feeling well"
+                        },
+                        {
+                            "date": "2019-10-07 05:10:10",
+                            "present": false,
+                            "reason": "not feeling well"
+                        },
+                        {
+                            "date": "2019-10-08 05:10:10",
+                            "present": true,
+                            "reason": "good"
+                        },
+                        {
+                            "date": "2019-10-09 05:10:10",
+                            "present": false,
+                            "reason": "have urgent situation"
+                        },
+                        {
+                            "date": "2019-10-10 05:10:10",
+                            "present": true,
+                            "reason": "present"
+                        },
+                        {
+                            "date": "2019-10-11 05:10:10",
+                            "present": false,
+                            "reason": "not feeling well"
+                        },
+                        {
+                            "date": "2019-10-12 05:10:10",
+                            "present": true,
+                            "reason": "present"
+                        },
+                        {
+                            "date": "2019-10-13 05:10:10",
+                            "present": false,
+                            "reason": "have urgent situation"
+                        },
+                        {
+                            "date": "2019-10-14 05:10:10",
+                            "present": false,
+                            "reason": "sick"
+                        },
+                        {
+                            "date": "2019-10-15 05:10:10",
+                            "present": true,
+                            "reason": "good"
+                        },
+                        {
+                            "date": "2019-10-16 05:10:10",
+                            "present": false,
+                            "reason": "not feeling well"
+                        },
+                        {
+                            "date": "2019-10-17 05:10:10",
+                            "present": false,
+                            "reason": "sick"
+                        },
+                        {
+                            "date": "2019-10-18 05:10:10",
+                            "present": true,
+                            "reason": "present"
+                        },
+                        {
+                            "date": "2019-10-19 05:10:10",
+                            "present": true,
+                            "reason": "good"
+                        },
+                        {
+                            "date": "2019-10-20 05:10:10",
+                            "present": false,
+                            "reason": "have urgent situation"
+                        },
+                        {
+                            "date": "2019-10-21 05:10:10",
+                            "present": false,
+                            "reason": "not feeling well"
+                        },
+                        {
+                            "date": "2019-10-22 05:10:10",
+                            "present": false,
+                            "reason": "sick"
+                        },
+                        {
+                            "date": "2019-10-23 05:10:10",
+                            "present": true,
+                            "reason": "present"
+                        },
+                        {
+                            "date": "2019-10-24 05:10:10",
+                            "present": true,
+                            "reason": "good"
+                        },
+                        {
+                            "date": "2019-10-25 05:10:10",
+                            "present": false,
+                            "reason": "have urgent situation"
+                        },
+                        {
+                            "date": "2019-10-26 05:10:10",
+                            "present": false,
+                            "reason": "not feeling well"
+                        },
+                        {
+                            "date": "2019-10-27 05:10:10",
+                            "present": false,
+                            "reason": "sick"
+                        },
+                        {
+                            "date": "2019-10-28 05:10:10",
+                            "present": true,
+                            "reason": "present"
+                        },
+                        {
+                            "date": "2019-10-29 05:10:10",
+                            "present": true,
+                            "reason": "good"
+                        },
+                        {
+                            "date": "2019-10-30 05:10:10",
+                            "present": false,
+                            "reason": "have urgent situation"
+                        },
+                        {
+                            "date": "2019-10-31 05:10:10",
+                            "present": false,
+                            "reason": "not feeling well"
+                        }
+                    ]
+        }

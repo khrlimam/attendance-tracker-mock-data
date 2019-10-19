@@ -47,15 +47,36 @@ Attendance Tracker Mock Data is an API with purpose of serving a mocked data for
                         }
                     ]
         }
-        
+
 ## User Approval Collections [/user/{username}/approval{?status}]
 
-### Show User Approval Status [GET]
+### Show User Approval With Given Parameters
 + Parameters
     + username (string, required, `khairulimam`) - Username which approval to see by ?status
     + status (string, optional, `pending`) - Specify which approval status to see [pending, approved, rejected]. The default is pending
+        
+
+## User Approval Collections [/user/{username}/approval?status=pending]
+
+### Show User Approval With Status Pending [GET]
++ Parameters
+    + username (string, required, `khairulimam`) - Username which approval to see by ?status
 
 + Response 200 (application/json)
+
+        {
+            "data": []
+        }
+        
+        
+## User Approval Collections [/user/{username}/approval?status=approved]
+        
+### Show User Approval With Status Approved [GET]
++ Parameters
+    + username (string, required, `khairulimam`) - Username which approval to see by ?status
+
++ Response 200 (application/json)
+        
         
         {
             "data": [
@@ -210,4 +231,17 @@ Attendance Tracker Mock Data is an API with purpose of serving a mocked data for
                             "reason": "not feeling well"
                         }
                     ]
+        }
+    
+
+## User Approval Collections [/user/{username}/approval?status=rejected]
+
+### Show User Approval With Status Rejected [GET]
++ Parameters
+    + username (string, required, `khairulimam`) - Username which approval to see by ?status
+
++ Response 200 (application/json)
+
+        {
+            "data": []
         }
